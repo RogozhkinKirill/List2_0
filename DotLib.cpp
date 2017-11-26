@@ -32,7 +32,7 @@ int DotListElLabel(FILE* DotFile , ListEl* lst_el)
 }
 
 
-int DotListElCon(FILE* DotFile , ListEl* out ,  ListEl* in)
+int DotListElCon(FILE* DotFile , ListEl* lst_el)
 {
     if (!DotFile)
     {
@@ -40,27 +40,38 @@ int DotListElCon(FILE* DotFile , ListEl* out ,  ListEl* in)
         return 2;
     }
 
-    if (!out || !in)
+    if (!lst_el)
     {
         printf("ERROR. Pointer on List = NULL\n");
         return 1;
     }
 
-    char DotListAddressOut[10];
-    itoa((int)out , DotListAddressOut , 10);
+    char DotListAddressCurrent[10];
+    itoa((int)lst_el , DotListAddressCurrent , 10);
 
-    char DotListAddressIn[10];
-    itoa((int)in , DotListAddressIn , 10);
+    if(lst_el->next)
+    {
+        char DotListAddressNext[10];
+        itoa((int)lst_el->next , DotListAddressNext , 10);
 
-    fputs("\n   " , DotFile);
-    fputs(DotListAddressIn , DotFile);
-    fputs(" -> " , DotFile);
-    fputs(DotListAddressOut , DotFile);
-    fputs(";\n   " , DotFile);
-    fputs(DotListAddressOut , DotFile);
-    fputs(" -> " , DotFile);
-    fputs(DotListAddressIn , DotFile);
-    fputs(";\n" , DotFile);
+        fputs("\n   " , DotFile);
+        fputs(DotListAddressCurrent , DotFile);
+        fputs(" -> " , DotFile);
+        fputs(DotListAddressNext , DotFile);
+        fputs(";\n" , DotFile);
+    }
+
+    if(lst_el->prev)
+    {
+        char DotListAddressPrev[10];
+        itoa((int) lst_el->prev, DotListAddressPrev, 10);
+
+        fputs("\n   " , DotFile);
+        fputs(DotListAddressCurrent, DotFile);
+        fputs(" -> ", DotFile);
+        fputs(DotListAddressPrev, DotFile);
+        fputs(";\n", DotFile);
+    }
 
     return 0;
 }
@@ -80,11 +91,14 @@ int DotDumpList(List* lst)
     ListEl* current = lst->first;
     while(current)
     {
-        DotListElLabel(DotFile , current->prev);
         DotListElLabel(DotFile , current);
+        current = current->next;
+    }
 
-        DotListElCon(DotFile , current->prev , current);
-
+    current = lst->first;
+    while(current)
+    {
+        DotListElCon(DotFile , current);
         current = current->next;
     }
 

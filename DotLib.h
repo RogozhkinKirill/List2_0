@@ -5,7 +5,7 @@
 #include "ListLib.h"
 
 int DotListElLabel(FILE* , ListEl*);
-int DotListElCon(FILE* , ListEl* out , ListEl* in);
+int DotListElCon(FILE* , ListEl*);
 
 int DotDumpList(List*);
 
