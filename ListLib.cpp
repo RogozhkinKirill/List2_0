@@ -1,6 +1,8 @@
-#include "ListLib.h"
 #include <stdio.h>
 #include <stdlib.h>
+
+#include "ListLib.h"
+#include "DotLib.h"
 
 
 
@@ -197,9 +199,13 @@ void List::ListDump()
     {
         printf("\nElement %d:\n\tvalue    = %d\n\tcurrent->prev 0x%p\n\tcurrent       0x%p\n\tcurrent->next 0x%p\n" ,
                count + 1 , current->value , current->prev , current , current->next);
+
         ++count;
         current = current->next;
     }
+
+    int res = DotDumpList(this);
+    printf("\nResult of dot: %d\n" , res);
 
     printf("Dump finished\n");
 

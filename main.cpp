@@ -29,7 +29,7 @@ int main()
 
     DumpList(lst);
     printf("\n");
-    for(int i=0; i<4; ++i)
+    for(int i=0; i<5; ++i)
     {
         ListEl *lst_el = lst->Insert(i, 1, LAST);
         printf("%d\n", lst_el->value);
