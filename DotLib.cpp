@@ -91,7 +91,7 @@ int DotDumpList(List* lst)
     fputs("\n}\n", DotFile);
 
     int res = system("C:\\Programme\\Graphviz2.38\\bin\\dot.exe -Tpng C:\\Programme\\List2.0\\ViewOfConnections.txt "
-                             "-o C:\\Programme\\List2.0\\ViewOfConnections.png");
+                             "-oC:\\Programme\\List2.0\\ViewOfConnections.png");
 
     printf("\nResult of dot: %d\n" , res);
 

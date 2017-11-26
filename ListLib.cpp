@@ -112,6 +112,7 @@ ListEl* List::Insert(value_t value, value_t El, int place)
            }
             else
            {
+               tmp->next->prev = lst_el;
                lst_el->prev = tmp;
                lst_el->next = tmp->next;
                tmp->next = lst_el;
