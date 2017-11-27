@@ -17,20 +17,31 @@ int DotListElLabel(FILE* DotFile , ListEl* lst_el)
         return 1;
     }
 
-    char DotListAddress[10];
+    char DotListAddressCurrent[10];
+    char DotListAddress_Ox_Current[10];
+    char DotListAddress_Ox_Next[10];
+    char DotListAddress_Ox_Prev[10];
     char DotListValue[10];
-    itoa((int)lst_el , DotListAddress , 10);
+    itoa((int)lst_el , DotListAddressCurrent , 10);
+    itoa((int)lst_el , DotListAddress_Ox_Current , 16);
+    itoa((int)(lst_el->next) , DotListAddress_Ox_Next , 16);
+    itoa((int)(lst_el->prev) , DotListAddress_Ox_Prev , 16);
     itoa( lst_el->value , DotListValue , 10);
 
     fputs("\n   " , DotFile);
-    fputs(DotListAddress , DotFile);
-    fputs(" [label = " , DotFile);
+    fputs(DotListAddressCurrent , DotFile);
+    fputs(" [label =\"{Current | Previous | Next | Value} | {" , DotFile);
+    fputs(DotListAddress_Ox_Current , DotFile);
+    fputs(" | " , DotFile);
+    fputs(DotListAddress_Ox_Prev , DotFile);
+    fputs(" | " , DotFile);
+    fputs(DotListAddress_Ox_Next , DotFile);
+    fputs(" | " , DotFile);
     fputs(DotListValue , DotFile);
-    fputs("];\n" , DotFile);
+    fputs("}\" , style=filled , color=\"#40e100:#40e0f0\"];\n" , DotFile);
 
     return 0;
 }
-
 
 int DotListElCon(FILE* DotFile , ListEl* lst_el)
 {
@@ -86,7 +97,8 @@ int DotDumpList(List* lst)
 
 
     FILE* DotFile = fopen("C:\\Programme\\List2.0\\ViewOfConnections.txt" , "w+");
-    fputs("digraph ViewOfConnections {\n" , DotFile);
+    fputs("digraph ViewOfConnections {\n"
+                  "   node[shape = record];\n" , DotFile);
 
     ListEl* current = lst->first;
     while(current)

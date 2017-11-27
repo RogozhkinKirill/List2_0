@@ -1,65 +1,66 @@
 digraph ViewOfConnections {
+   node[shape = record];
 
-   6951096 [label = 2];
+   7016632 [label ="{Current | Previous | Next | Value} | {6b10b8 | 0 | 6b1120 | 2}" , style=filled , color="#40e100:#40e0f0"];
 
-   6951200 [label = 2];
+   7016736 [label ="{Current | Previous | Next | Value} | {6b1120 | 6b10b8 | 6b1108 | 2}" , style=filled , color="#40e100:#40e0f0"];
 
-   6951176 [label = 1];
+   7016712 [label ="{Current | Previous | Next | Value} | {6b1108 | 6b1120 | 6b10f0 | 1}" , style=filled , color="#40e100:#40e0f0"];
 
-   6951152 [label = 0];
+   7016688 [label ="{Current | Previous | Next | Value} | {6b10f0 | 6b1108 | 6b1138 | 0}" , style=filled , color="#40e100:#40e0f0"];
 
-   6951224 [label = 0];
+   7016760 [label ="{Current | Previous | Next | Value} | {6b1138 | 6b10f0 | 6b1150 | 0}" , style=filled , color="#40e100:#40e0f0"];
 
-   6951248 [label = 1];
+   7016784 [label ="{Current | Previous | Next | Value} | {6b1150 | 6b1138 | 6b1168 | 1}" , style=filled , color="#40e100:#40e0f0"];
 
-   6951272 [label = 2];
+   7016808 [label ="{Current | Previous | Next | Value} | {6b1168 | 6b1150 | 6b1180 | 2}" , style=filled , color="#40e100:#40e0f0"];
 
-   6951296 [label = 3];
+   7016832 [label ="{Current | Previous | Next | Value} | {6b1180 | 6b1168 | 6b1198 | 3}" , style=filled , color="#40e100:#40e0f0"];
 
-   6951320 [label = 4];
+   7016856 [label ="{Current | Previous | Next | Value} | {6b1198 | 6b1180 | 6b11b0 | 4}" , style=filled , color="#40e100:#40e0f0"];
 
-   6951344 [label = 5];
+   7016880 [label ="{Current | Previous | Next | Value} | {6b11b0 | 6b1198 | 6b11c8 | 5}" , style=filled , color="#40e100:#40e0f0"];
 
-   6951368 [label = 6];
+   7016904 [label ="{Current | Previous | Next | Value} | {6b11c8 | 6b11b0 | 0 | 6}" , style=filled , color="#40e100:#40e0f0"];
 
-   6951096 -> 6951200;
+   7016632 -> 7016736;
 
-   6951200 -> 6951176;
+   7016736 -> 7016712;
 
-   6951200 -> 6951096;
+   7016736 -> 7016632;
 
-   6951176 -> 6951152;
+   7016712 -> 7016688;
 
-   6951176 -> 6951200;
+   7016712 -> 7016736;
 
-   6951152 -> 6951224;
+   7016688 -> 7016760;
 
-   6951152 -> 6951176;
+   7016688 -> 7016712;
 
-   6951224 -> 6951248;
+   7016760 -> 7016784;
 
-   6951224 -> 6951152;
+   7016760 -> 7016688;
 
-   6951248 -> 6951272;
+   7016784 -> 7016808;
 
-   6951248 -> 6951224;
+   7016784 -> 7016760;
 
-   6951272 -> 6951296;
+   7016808 -> 7016832;
 
-   6951272 -> 6951248;
+   7016808 -> 7016784;
 
-   6951296 -> 6951320;
+   7016832 -> 7016856;
 
-   6951296 -> 6951272;
+   7016832 -> 7016808;
 
-   6951320 -> 6951344;
+   7016856 -> 7016880;
 
-   6951320 -> 6951296;
+   7016856 -> 7016832;
 
-   6951344 -> 6951368;
+   7016880 -> 7016904;
 
-   6951344 -> 6951320;
+   7016880 -> 7016856;
 
-   6951368 -> 6951344;
+   7016904 -> 7016880;
 
 }
